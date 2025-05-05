@@ -28,6 +28,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
@@ -66,6 +67,7 @@ val initialItems = (1..100).map {
     )
 }
 
+@Stable
 data class ListItem(
     val id: Int,
     val title: String,
@@ -165,12 +167,15 @@ fun Homework1(
             items = items,
             key = { it.id }
         ) { item ->
+            val itemId = remember {
+                item.id
+            }
             ContextualListItem(
                 item = item,
                 modifier = Modifier
                     .fillMaxWidth(),
                 onContextVisibilityChange = { isVisible ->
-                    onAction(ListAction.OnContextVisibilityChange(item.id, isVisible))
+                    onAction(ListAction.OnContextVisibilityChange(itemId, isVisible))
                 },
                 actions = {
                     listOf(

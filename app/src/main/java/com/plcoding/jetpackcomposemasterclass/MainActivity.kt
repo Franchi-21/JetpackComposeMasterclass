@@ -6,8 +6,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,9 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.plcoding.jetpackcomposemasterclass.basic_modifiers.TriangleShape
 import com.plcoding.jetpackcomposemasterclass.composition_locals.LocalShape
 import com.plcoding.jetpackcomposemasterclass.internals.snapshots
+import com.plcoding.jetpackcomposemasterclass.measurements.utility.printConstraints
 import com.plcoding.jetpackcomposemasterclass.performance.DeferredStateReads
 import com.plcoding.jetpackcomposemasterclass.performance.KeysCustomLayout
 import com.plcoding.jetpackcomposemasterclass.performance.LazyListPerformance
@@ -40,16 +44,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeMasterclassTheme {
-                Scaffold(
-                    modifier = Modifier
-                        .fillMaxSize(),
-                ) { innerPadding ->
-                    ListItemScreenRoot(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding)
-                    )
-                }
+                ListItemScreenRoot()
             }
         }
     }

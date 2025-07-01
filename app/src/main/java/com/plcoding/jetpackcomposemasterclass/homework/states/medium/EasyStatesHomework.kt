@@ -1,8 +1,7 @@
-package com.plcoding.jetpackcomposemasterclass.homework.states
+package com.plcoding.jetpackcomposemasterclass.homework.states.medium
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -25,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import com.plcoding.jetpackcomposemasterclass.ui.theme.JetpackComposeMasterclassTheme
 
 @Composable
-fun EasyStatesHomework(innerPadding: PaddingValues) {
+fun EasyStatesHomework() {
     var checked by rememberSaveable { mutableStateOf(false) }
     Row(
         modifier = Modifier
@@ -59,6 +58,6 @@ fun EasyStatesHomework(innerPadding: PaddingValues) {
 @Composable
 private fun EasStatesHomeworkPreview() {
     JetpackComposeMasterclassTheme {
-        EasyStatesHomework(PaddingValues())
+        EasyStatesHomework()
     }
 }

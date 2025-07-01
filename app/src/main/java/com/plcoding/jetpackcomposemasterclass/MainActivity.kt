@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -11,9 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.plcoding.jetpackcomposemasterclass.basic_layout.HotelBookingScreen
-import com.plcoding.jetpackcomposemasterclass.state_management.number_guess.NumberGuessScreenRoot
+import androidx.compose.ui.unit.dp
+import com.plcoding.jetpackcomposemasterclass.homework.states.EasyStatesHomework
 import com.plcoding.jetpackcomposemasterclass.ui.theme.JetpackComposeMasterclassTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,10 +23,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposeMasterclassTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    NumberGuessScreenRoot(
+                    Column(
                         modifier = Modifier
+                            .padding(8.dp)
                             .padding(innerPadding)
-                    )
+                    ) {
+                        EasyStatesHomework(innerPadding)
+                    }
                 }
             }
         }

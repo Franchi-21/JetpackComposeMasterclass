@@ -4,51 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.foundation.layout.safeGestures
-import androidx.compose.foundation.layout.safeGesturesPadding
-import androidx.compose.foundation.layout.statusBarsIgnoringVisibility
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.plcoding.jetpackcomposemasterclass.basic_layout.HotelBookingScreen
-import com.plcoding.jetpackcomposemasterclass.basic_modifiers.FocusManagementModifiers
-import com.plcoding.jetpackcomposemasterclass.basic_modifiers.SpacingModifierDemo
-import com.plcoding.jetpackcomposemasterclass.measurements.LazyMindMap
-import com.plcoding.jetpackcomposemasterclass.measurements.LazyScrolling
-import com.plcoding.jetpackcomposemasterclass.measurements.MindMapItem
-import com.plcoding.jetpackcomposemasterclass.measurements.SizeModifiersDemo
-import com.plcoding.jetpackcomposemasterclass.measurements.SizePositionModifiersDemo
-import com.plcoding.jetpackcomposemasterclass.measurements.SubcomposePagedRow
-import com.plcoding.jetpackcomposemasterclass.state_management.number_guess.NumberGuessScreenRoot
+import com.plcoding.jetpackcomposemasterclass.homework.states.hard.HardStatesHomework
 import com.plcoding.jetpackcomposemasterclass.ui.theme.JetpackComposeMasterclassTheme
-import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,55 +19,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeMasterclassTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                ) { innerPadding ->
-                    val mindMapItems = remember {
-                        listOf(
-                            MindMapItem(
-                                title = "Hello world 1",
-                                percentageOffset = Offset(
-                                    x = 0f,
-                                    y = 0f
-                                )
-                            ),
-                            MindMapItem(
-                                title = "Hello world 2",
-                                percentageOffset = Offset(
-                                    x = 1f,
-                                    y = 0f
-                                )
-                            ),
-                            MindMapItem(
-                                title = "Hello world 3",
-                                percentageOffset = Offset(
-                                    x = 0.3f,
-                                    y = -0.5f
-                                )
-                            ),
-                            MindMapItem(
-                                title = "Hello world 4",
-                                percentageOffset = Offset(
-                                    x = -0.2f,
-                                    y = 1.5f
-                                )
-                            ),
-                        )
-                    }
-
-                    var mindMapOffset by remember {
-                        mutableStateOf(IntOffset.Zero)
-                    }
-                    LazyMindMap(
-                        items = mindMapItems,
-                        mindMapOffset = mindMapOffset,
-                        onDrag = { delta ->
-                            mindMapOffset += delta
-                        },
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding)
-                    )
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    HardStatesHomework(innerPadding)
                 }
             }
         }
